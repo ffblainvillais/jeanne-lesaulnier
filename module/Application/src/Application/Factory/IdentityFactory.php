@@ -11,7 +11,7 @@ class IdentityFactory implements FactoryInterface
     public function createService(ServiceLocatorInterface $serviceLocator)
     {
         $em                     = $serviceLocator->get('Doctrine\ORM\EntityManager');
-        $authenticationService  = $serviceLocator->get('Zend\Authentication\AuthenticationService');        $barcodeModel       = $serviceLocator->get('Barcode');
+        $authenticationService  = $serviceLocator->get('zfcuser_auth_service');
 
         $model = new Identity(
             $em,

@@ -4,8 +4,6 @@ namespace Application\Model;
 
 class Identity {
 
-    use SessionContainerTrait;
-
     protected $em;
     protected $authenticationModel;
     protected $identity;
@@ -42,9 +40,9 @@ class Identity {
     {
         if (!$this->identity) {
 
-            if ($this->authenticationService->hasIdentity()) {
+            if ($this->authenticationModel->hasIdentity()) {
 
-                $this->identity = $this->authenticationService->getIdentity();
+                $this->identity = $this->authenticationModel->getIdentity();
             }
         }
 
