@@ -1,0 +1,20 @@
+<div class="topnav" id="myTopnav">
+    <section class="topnav-items">
+        <a href="#home">ACCUEIL</a>
+        <a href="#news">MES RÉALISATIONS</a>
+        <a href="#contact">MON PARCOURS</a>
+        <a href="#about">QUI-SUIS-JE ?</a>
+        <a href="javascript:void(0);" class="icon js-menu__display" onclick="displayResponsiveMenu()">&#9776;</a>
+    </section>
+</div>
+
+<script>
+    function displayResponsiveMenu() {
+        var x = document.getElementById("myTopnav");
+        if (x.className === "topnav") {
+            x.className += " responsive";
+        } else {
+            x.className = "topnav";
+        }
+    }
+</script>
