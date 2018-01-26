@@ -16,6 +16,7 @@
     {# Styles #}
     {% block styles %}
         <link href="/css/app.css" rel="stylesheet">
+        <link href="/js/magnific-popup/dist/magnific-popup.css" rel="stylesheet">
         {#
         <link href="{{asset('vendor/css/bootstrap.min.css')}}" rel="stylesheet">
         <link href="{{asset('vendor/css/bootstrap-theme.min.css')}}" rel="stylesheet">
@@ -51,10 +52,6 @@
     {#{% include '/application/index/footer' %}#}
 {% endblock %}
 
-<a href="#top-page" class="back-to-top js-smooth-scroll">
-    <i class="icon-arrow-up4 back-to-top__icon"></i> <span class="back-to-top__label">{{ translate('Back to top') }}</span>
-</a>
-
 {% block notification %}
     {#{% include 'layout/commons/notification' %}#}
 {% endblock %}
@@ -62,6 +59,7 @@
 
 {% block bottom_javascripts %}
     <script type='text/javascript' src='/js/tinymce/js/tinymce/tinymce.js'></script>
+    <script type='text/javascript' src='/js/magnific-popup/dist/jquery.magnific-popup.js'></script>
     <script type='text/javascript' src='/js/tinymce.js'></script>
     <script type='text/javascript' src='/js/app.js'></script>
 {% endblock %}

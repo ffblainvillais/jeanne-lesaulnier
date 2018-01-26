@@ -1,13 +1,20 @@
 {% extends 'layout/layout' %}
 
 {% block content %}
+    {#{% include 'zfc-user/user/login' %}#}
     <header class="header" id="home">
+        {% if not zfcUserIdentity() %}
+            <a href="{{ url('zfcuser/login') }}" id="connection-link">Connection</a>
+        {% else %}
+            <a href="{{ url('zfcuser/logout') }}" id="connection-link">{{ zfcUserIdentity().getDisplayname() }} Deconnection</a>
+        {% endif %}
+
         <div id="top" class="text-vertical-center">
             <h1>Jeanne Lesaulnier</h1>
         </div>
     </header>
     <section class="page-container container-grey">
-        <h2 id="creation">Mes realisations</h2>
+        <h2 >Mes realisations</h2>
         <hr/>
         <ul class="creation-container">
             {% for creation in creations %}
@@ -21,4 +28,5 @@
         <hr/>
         <img src='images/fleche.png' class="content-page">
     </section>
+
 {% endblock %}
