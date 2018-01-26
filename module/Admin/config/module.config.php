@@ -6,24 +6,59 @@
  * @copyright Copyright (c) 2005-2014 Zend Technologies USA Inc. (http://www.zend.com)
  * @license   http://framework.zend.com/license/new-bsd New BSD License
  */
+namespace Admin;
+
+use Admin\Factory\AdminControllerFactory;
+use Admin\Factory\CreationFactory;
 
 return array(
     'router' => array(
+        'router_class' => 'Zend\Mvc\Router\Http\TranslatorAwareTreeRouteStack',
         'routes' => array(
-
+            'add-creation-page' => [
+                'type'    => 'Literal',
+                'options' => [
+                    'route'    => '/add-creation-page',
+                    'defaults' => [
+                        '__NAMESPACE__' => 'Admin\Controller',
+                        'controller'    => 'Admin',
+                        'action'        => 'addPage',
+                    ],
+                ],
+            ],
+            'add-creation' => [
+                'type'    => 'Literal',
+                'options' => [
+                    'route'    => '/add-creation',
+                    'defaults' => [
+                        '__NAMESPACE__' => 'Admin\Controller',
+                        'controller'    => 'Admin',
+                        'action'        => 'add',
+                    ],
+                ],
+            ],
+            'remove-creation' => [
+                'type'    => 'Segment',
+                'options' => [
+                    'route'    => '/remove-creation/:idCreation',
+                    'constraints' => [
+                        'idCreation' => '[0-9]*',
+                    ],
+                    'defaults' => [
+                        'action'        => 'remove',
+                    ],
+                ],
+            ],
         ),
     ),
     'service_manager' => array(
         'factories' => array(
-
+            'Creation' => CreationFactory::class
         ),
     ),
     'controllers' => array(
-        'invokables' => array(
-
-        ),
         'factories' => array(
-
+            'Admin\Controller\Admin' => AdminControllerFactory::class,
         )
     ),
     'doctrine' => array(

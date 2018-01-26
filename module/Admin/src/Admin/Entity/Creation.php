@@ -6,7 +6,8 @@ use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ORM\Entity
- * @ORM\Table(name="creations")
+ * @ORM\Table(name="creation")
+ * @ORM\HasLifecycleCallbacks
  */
 class Creation
 {

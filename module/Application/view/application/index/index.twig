@@ -13,16 +13,18 @@
             <h1>Jeanne Lesaulnier</h1>
         </div>
     </header>
-    <section class="page-container container-grey">
-        <h2 >Mes realisations</h2>
+
+    <section class="page-container container-grey"  id="creation">
+        <h2>Mes realisations</h2>
         <hr/>
         <ul class="creation-container">
             {% for creation in creations %}
 
             {% endfor %}
-            <li class="creation"><span class="glyphicon glyphicon-plus"></span></li>
+            <li class="creation text-vertical-center js-creation__add" data-url="{{ url('add-creation-page') }}"><span class="glyphicon glyphicon-plus"></span></li>
         </ul>
     </section>
+
     <section class="page-container container-grey">
         <h2 id="myCourse">Mon parcours</h2>
         <hr/>

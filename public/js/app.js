@@ -6,6 +6,7 @@
         constructor() {
 
             this.$loginLink                 = $('#connection-link')
+            this.$creationAdd               = $('.js-creation__add')
             this.$responsiveDisplayButton   = $('.js-menu__display')
             this.$navBar                    = $('#myTopnav')
 
@@ -15,12 +16,15 @@
         init() {
 
             this.$loginLink.on('click', e => {
-
                 e.preventDefault()
-
-                console.log('open login form')
-                this.openLoginForm()
+             this.openLoginForm()
             })
+
+            this.$creationAdd.on('click', e => {
+                e.preventDefault()
+                this.openAddCreationForm()
+            })
+
             /*console.log(this.$responsiveDisplayButton)
             this.$responsiveDisplayButton.on('click', e => {
                 this.responsiveMenu()
@@ -38,6 +42,23 @@
                 },
                 //closeOnContentClick: false,
                 //closeOnBgClick: false,
+                type      : 'ajax',
+                callbacks : {
+                    afterClose() {
+                        location.reload()
+                    },
+                },
+            })
+        }
+
+        openAddCreationForm() {
+
+            $.magnificPopup.open({
+                items : {
+                    src: this.$creationAdd.data('url'),
+                },
+                closeOnContentClick: false,
+                closeOnBgClick: false,
                 type      : 'ajax',
                 callbacks : {
                     afterClose() {

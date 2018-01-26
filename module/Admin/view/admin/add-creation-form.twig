@@ -1,0 +1,13 @@
+<div class="mfp-content">
+    <form action="{{ url('add-creation') }}" method="post">
+        <div class="container">
+            <label><b>Titre</b></label>
+            <input type="text" placeholder="Titre création" name="title" required>
+
+            <label><b>Logo</b></label>
+            <input type="file" placeholder="Logo entreprise" name="logo" required>
+
+            <button type="submit">Valider</button>
+        </div>
+    </form>
+</div>
