@@ -14,13 +14,17 @@ body {
     font-family: 'bignoodletitling';
     src: url('fonts/bignoodletitling/big_noodle_titling.ttf');
 }
+@font-face {
+    font-family: 'lato';
+    src: url('fonts/lato/Lato-Light.ttf');
+}
 
 .header {
     display: table;
     position: relative;
     width: 100%;
     height: 100%;
-    background: url(../img/bg.png) no-repeat center center scroll;
+    background: url(../images/bg.png) no-repeat center center scroll;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     background-size: cover;
@@ -105,6 +109,99 @@ body {
         text-align: left;
     }
 }
+
+.container-grey {
+    background-color: #c4cbcc;
+}
+
+.page-container {
+    display: table;
+    position: relative;
+    width: 100%;
+    min-height: 100%;
+}
+
+.page-container > h2 {
+    text-align: center;
+    font-family: 'bromello';
+    font-size: 5vw;
+    margin-top: 35px;
+}
+
+.page-container > hr{
+    clear: both;
+    border: 0.5px solid black;
+    text-align: center;
+    width: 50%;
+    color:black;
+    margin-bottom: 25px;
+}
+
+.page-container > .content-page {
+    width:80%;
+    display:block;
+    margin-left: auto;
+    margin-right: auto;
+    height:45vw;
+}
+
+.creation-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-content: space-around;
+    width: 100%;
+    margin:0;
+    padding:0 5% 0 5%;
+    box-sizing: border-box;
+}
+
+@media screen and (max-width: 540px) {
+    .creation {
+        margin-top:25px;
+    }
+}
+
+.creation {
+    width: 200px;
+    height: 200px;
+    border: 5px solid #80D0D0;
+    list-style: none;
+    margin-left:20px;
+    margin-right:20px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+.glyphicon {
+    position: relative;
+    top: 1px;
+    display: inline-block;
+    font-family: 'Glyphicons Halflings';
+    -webkit-font-smoothing: antialiased;
+    font-style: normal;
+    font-weight: normal;
+    line-height: 1;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.glyphicon-plus:before {
+    content: "\2b";
+}
+
+
+
+
+
 
 
 
