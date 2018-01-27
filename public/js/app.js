@@ -15,15 +15,15 @@
 
         init() {
 
-            this.$loginLink.on('click', e => {
+            /*this.$loginLink.on('click', e => {
                 e.preventDefault()
              this.openLoginForm()
-            })
+            })*/
 
-            this.$creationAdd.on('click', e => {
+            /*this.$creationAdd.on('click', e => {
                 e.preventDefault()
                 this.openAddCreationForm()
-            })
+            })*/
 
             /*console.log(this.$responsiveDisplayButton)
             this.$responsiveDisplayButton.on('click', e => {
