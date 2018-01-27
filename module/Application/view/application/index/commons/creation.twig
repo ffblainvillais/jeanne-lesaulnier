@@ -1,0 +1,10 @@
+<section class="page-container container-grey"  id="creation">
+    <h2>Mes realisations</h2>
+    <hr/>
+    <ul class="creation-container">
+        {% for creation in creations %}
+            <li class="creation text-vertical-center"><img src="{{ creation().getImagePath(creation.image) }}" alt="{{ creation.title }}"></li>
+        {% endfor %}
+        <li class="creation text-vertical-center js-creation__add" data-url="{{ url('add-creation-page') }}"><a href="{{ url('add-creation-page') }}"><span class="glyphicon glyphicon-plus"></span></a></li>
+    </ul>
+</section>
