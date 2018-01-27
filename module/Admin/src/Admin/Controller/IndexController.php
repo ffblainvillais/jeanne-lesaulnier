@@ -61,16 +61,15 @@ class IndexController extends AbstractActionController
         return $this->redirect()->toRoute('home');
     }
 
-    public function deleteAction()
+    public function removeAction()
     {
+        $creationId  = $this->params()->fromRoute('creationId');
 
-        $shoppingListId  = $this->params()->fromRoute('shoppingListId');
+        $this->creationModel->removeCreationById($creationId);
 
-        $message = $this->shoppingListModel->deleteShoppingListById($shoppingListId);
+        $this->flashMessenger()->addMessage('la création à bien été supprimée !');
 
-        $this->flashMessenger()->addMessage($message);
-
-        return $this->redirect()->toRoute('user', ['controller' => 'shoppingList']);
+        return $this->redirect()->toRoute('home');
     }
 
     public function preDispatch (MvcEvent $e)

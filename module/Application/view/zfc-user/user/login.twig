@@ -6,14 +6,14 @@
         <h1>Connexion</h1>
     </div>
 
-    <form action="{{ url('zfcuser/login') }}" method="post" class="container">
-        <label><b>Username</b></label>
-        <input type="text" placeholder="Enter Username" name="identity" required>
+    <form action="{{ url('zfcuser/login') }}" method="post" class="container text-lato">
+        <label><b>Utilisateur</b></label>
+        <input type="text" placeholder="Entrer l'utilisateur" name="identity" required>
 
-        <label><b>Password</b></label>
-        <input type="password" placeholder="Enter Password" name="credential" required>
+        <label><b>Mot de passe</b></label>
+        <input type="password" placeholder="Entrer le mot de passe" name="credential" required>
 
-        <button type="submit">Login</button>
+        <input type="submit">
     </form>
 
 {% endblock %}

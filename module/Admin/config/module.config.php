@@ -43,11 +43,13 @@ return array(
             'remove-creation' => [
                 'type'    => 'Segment',
                 'options' => [
-                    'route'    => '/remove-creation/:idCreation',
+                    'route'    => '/remove-creation/:creationId',
                     'constraints' => [
-                        'idCreation' => '[0-9]*',
+                        'creationId' => '[0-9]*',
                     ],
                     'defaults' => [
+                        '__NAMESPACE__' => 'Admin\Controller',
+                        'controller'    => 'Admin',
                         'action'        => 'remove',
                     ],
                 ],

@@ -3,9 +3,9 @@
 {% block content %}
     <header class="header" id="home">
         {% if not zfcUserIdentity() %}
-            <a href="{{ url('zfcuser/login') }}" id="connection-link">Connection</a>
+            <a href="{{ url('zfcuser/login') }}" id="connection-link">.</a>
         {% else %}
-            <a href="{{ url('zfcuser/logout') }}" id="connection-link">{{ zfcUserIdentity().getDisplayname() }} Deconnection</a>
+            <a href="{{ url('zfcuser/logout') }}" id="connection-link">{{ zfcUserIdentity().getDisplayname() }} .</a>
         {% endif %}
 
         <div id="top" class="title text-centered title-vertical-center">
