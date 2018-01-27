@@ -27,6 +27,7 @@ class IndexController extends AbstractActionController
         $form = new AddCreationForm();
 
         $form->setAttribute('action', $this->url()->fromRoute('add-creation'));
+        $form->setAttribute('class', 'container');
 
         $viewModel = new ViewModel();
         $viewModel->setTerminal(true);

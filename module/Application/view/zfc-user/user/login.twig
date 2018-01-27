@@ -1,17 +1,19 @@
 {% extends 'layout/layout' %}
 
 {% block content %}
-    <div class="mfp-content">
-        <form action="{{ url('zfcuser/login') }}" method="post">
-            <div class="container">
-                <label><b>Username</b></label>
-                <input type="text" placeholder="Enter Username" name="identity" required>
 
-                <label><b>Password</b></label>
-                <input type="password" placeholder="Enter Password" name="credential" required>
-
-                <button type="submit">Login</button>
-            </div>
-        </form>
+    <div class="title title-center">
+        <h1>Connexion</h1>
     </div>
+
+    <form action="{{ url('zfcuser/login') }}" method="post" class="container">
+        <label><b>Username</b></label>
+        <input type="text" placeholder="Enter Username" name="identity" required>
+
+        <label><b>Password</b></label>
+        <input type="password" placeholder="Enter Password" name="credential" required>
+
+        <button type="submit">Login</button>
+    </form>
+
 {% endblock %}

@@ -37,10 +37,16 @@ body {
     -o-background-size: cover;
 }
 
-.text-vertical-center {
+.title-vertical-center {
     display: table-cell;
-    text-align: center;
     vertical-align: middle;
+}
+
+.title-center {
+    text-align: center;
+}
+
+.title {
     font-family: 'bromello', arial, sans-serif;
     font-size: 6vw;
 }
@@ -216,7 +222,7 @@ form {
 }
 
 /* Full-width inputs */
-input[type=text], input[type=password] {
+input[type=text], input[type=password], input[type=file] {
     width: 100%;
     padding: 12px 20px;
     margin: 8px 0;
@@ -226,7 +232,7 @@ input[type=text], input[type=password] {
 }
 
 /* Set a style for all buttons */
-button {
+input[type="submit"] {
     background-color: #4CAF50;
     color: white;
     padding: 14px 20px;
@@ -237,7 +243,7 @@ button {
 }
 
 /* Add a hover effect for buttons */
-button:hover {
+input[type="submit"]:hover {
     opacity: 0.8;
 }
 

@@ -1,7 +1,6 @@
 {% extends 'layout/layout' %}
 
 {% block content %}
-    {#{% include 'zfc-user/user/login' %}#}
     <header class="header" id="home">
         {% if not zfcUserIdentity() %}
             <a href="{{ url('zfcuser/login') }}" id="connection-link">Connection</a>
@@ -9,7 +8,7 @@
             <a href="{{ url('zfcuser/logout') }}" id="connection-link">{{ zfcUserIdentity().getDisplayname() }} Deconnection</a>
         {% endif %}
 
-        <div id="top" class="text-vertical-center">
+        <div id="top" class="title title-center title-vertical-center">
             <h1>Jeanne Lesaulnier</h1>
         </div>
     </header>
@@ -21,7 +20,7 @@
             {% for creation in creations %}
                 <li class="creation text-vertical-center"><img src="{{ creation().getImagePath(creation.image) }}" alt="{{ creation.title }}"></li>
             {% endfor %}
-            <li class="creation text-vertical-center js-creation__add" data-url="{{ url('add-creation-page') }}"><span class="glyphicon glyphicon-plus"></span></li>
+            <li class="creation text-vertical-center js-creation__add" data-url="{{ url('add-creation-page') }}"><a href="{{ url('add-creation-page') }}"><span class="glyphicon glyphicon-plus"></span></a></li>
         </ul>
     </section>
 
