@@ -8,6 +8,9 @@
  */
 namespace Application;
 
+use Application\Controller\Factory\IndexControllerFactory;
+use Application\View\Helper\Creation;
+
 return array(
     'router' => array(
         'routes' => array(
@@ -76,10 +79,15 @@ return array(
         ),
     ),
     'controllers' => array(
-        'invokables' => array(
-            'Application\Controller\Index' => 'Application\Controller\IndexController'
+        'factories' => array(
+            'Application\Controller\Index' => IndexControllerFactory::class
         ),
     ),
+    'view_helpers' => [
+        'invokables' => [
+            'creation' => Creation::class,
+        ],
+    ],
     'view_manager' => array(
         'display_not_found_reason' => true,
         'display_exceptions'       => true,

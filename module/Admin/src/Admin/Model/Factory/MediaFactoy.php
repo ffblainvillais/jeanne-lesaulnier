@@ -4,15 +4,15 @@ namespace Admin\Model\Factory;
 
 use Zend\ServiceManager\FactoryInterface;
 use Zend\ServiceManager\ServiceLocatorInterface;
-use \Admin\Model\Creation;
+use \Admin\Model\Media;
 
-class CreationFactory implements FactoryInterface
+class MediaFactoy implements FactoryInterface
 {
     public function createService(ServiceLocatorInterface $serviceLocator) {
 
         $em                 = $serviceLocator->get('Doctrine\ORM\EntityManager');
 
-        $model = new Creation(
+        $model = new Media(
             $em
         );
 

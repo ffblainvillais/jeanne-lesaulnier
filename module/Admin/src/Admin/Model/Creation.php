@@ -7,6 +7,8 @@
 
 namespace Admin\Model;
 
+use Admin\Entity\Creation as CreationEntity;
+
 class Creation
 {
     /**
@@ -19,5 +21,14 @@ class Creation
         $this->em                   = $em;
     }
 
+    public function addCreation($title, $logo)
+    {
+        $creation = new CreationEntity();
+
+        $creation->setImage($logo);
+        $creation->setTitle($title);
+
+        return $creation;
+    }
 
 }

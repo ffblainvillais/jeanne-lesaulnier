@@ -1,23 +1,21 @@
 <?php
 
-namespace Admin\Factory ;
+namespace Application\Controller\Factory ;
 
 use Zend\ServiceManager\FactoryInterface;
 use Zend\ServiceManager\ServiceLocatorInterface ;
-use \Admin\Controller\AdminController;
+use \Application\Controller\IndexController;
 
-class AdminControllerFactory implements FactoryInterface
+class IndexControllerFactory implements FactoryInterface
 {
     public function createService(ServiceLocatorInterface $serviceLocator)
     {
         $realServiceLocator = $serviceLocator->getServiceLocator();
 
         $em                 = $realServiceLocator->get('Doctrine\ORM\EntityManager');
-        $creationModel      = $realServiceLocator->get('Creation');
 
-        return new AdminController(
-            $em,
-            $creationModel
+        return new IndexController(
+            $em
         );
     }
 }

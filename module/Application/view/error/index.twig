@@ -1,0 +1,122 @@
+{#<?php#}
+
+{% extends 'layout/layout' %}
+
+{% block title %}
+    {{ translate('Oops! An error occured') }} | {{ parent() }}
+{% endblock %}
+
+{% block content %}
+    <div class="container" id="page-404">
+        <div class="header-404">
+            <div class="title">
+                <span class="h1">Oups</span>
+                <div class="h2">{{ message }}</div>
+            </div>
+        </div>
+        {% if error %}
+            <div class="card card--danger card--first">
+                <h3 class="card__title">Erreur</h3>
+                <div class="card__container">{{ error }}</div>
+            </div>
+        {% endif %}
+
+        {% if display_exceptions %}
+
+            {% if reason %}
+                {% if reason == 'error-controller-cannot-dispatch' %}
+                    {% set reasonMessage = translate('The requested controller was unable to dispatch the request.') %}
+                {% elseif reason == 'error-controller-not-found' %}
+                    {% set reasonMessage = translate('The requested controller could not be mapped to an existing controller class.') %}
+                {% elseif reason == 'error-controller-invalid' %}
+                    {% set reasonMessage = translate('The requested controller was not dispatchable.') %}
+                {% elseif reason == 'error-router-no-match' %}
+                    {% set reasonMessage = translate('The requested URL could not be matched by routing.') %}
+                {% else %}
+                    {% set reasonMessage = translate('We cannot determine at this time why a 404 was generated.') %}
+                {% endif %}
+                <div class="card card--secondary">
+                    <h3 class="card__title">Raison</h3>
+                    <div class="card__container">{{ reasonMessage }}</div>
+                </div>
+            {% endif %}
+            {% if exception %}
+                <div class="card card--danger">
+                    <h3 class="card__title">Exception</h3>
+                    <div class="card__container">
+                        <pre>{{ exception.file ~ ':' ~ exception.line }}</pre>
+                        <pre>{{ exception.message|raw }}</pre>
+
+                        {% if exception.warnings %}
+
+                            <h4>Warning</h4>
+
+                            {% for warning in exception.warnings %}
+
+                                <pre>{{ warning.libelle ~ ' : ' ~ warning.code }}</pre>
+
+                            {% endfor %}
+
+                            <br/>
+
+                        {% endif %}
+
+
+                    </div>
+                </div>
+
+                <div class="card card--secondary">
+                    <h3 class="card__title">Stack trace</h3>
+                    <div class="card__container">
+                        <pre class="js-trace trace">
+                            {{ exception.traceAsString }}
+                        </pre>
+                    </div>
+                </div>
+
+            {% endif %}
+
+        {% endif %}
+    </div>
+
+{% endblock %}
+
+{% block bottom_javascripts %}
+    {{ parent() }}
+    <script>
+        var $trace = $('.js-trace')
+        var lines  = $trace.text().split('#')
+        var $lines = []
+
+        for (var i = 0; i < lines.length; i++) {
+
+            if (i > 0) {
+                var line = lines[i]
+
+                if (line.indexOf('/maestro') >= 0) {
+                    line = line.split('/maestro')[1]
+                } else {
+                    line = line.replace(i - 1 + ' ', '')
+                }
+
+                line = line.replace(': ', '<span>: </span>')
+                line = line.replace('->', '<span>-></span>')
+
+                var $number = $('<span/>', {
+                    class : 'trace__number',
+                }).text(i - 1)
+
+                var $text = $('<span/>', {
+                    class : 'trace__text',
+                }).html(line)
+
+                var $line = $('<div/>', {
+                    class : 'trace__line',
+                }).append($number).append($text)
+                $lines.push($line)
+            }
+        }
+
+        $trace.html($lines)
+    </script>
+{% endblock %}

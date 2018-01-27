@@ -8,8 +8,11 @@
  */
 namespace Admin;
 
-use Admin\Factory\AdminControllerFactory;
-use Admin\Factory\CreationFactory;
+
+use Admin\Controller\Factory\IndexControllerFactory;
+use Admin\Model\Factory\CreationFactory;
+use Admin\Model\Factory\MediaFactoy;
+
 
 return array(
     'router' => array(
@@ -53,12 +56,13 @@ return array(
     ),
     'service_manager' => array(
         'factories' => array(
-            'Creation' => CreationFactory::class
+            'Creation'  => CreationFactory::class,
+            'Media'     => MediaFactoy::class
         ),
     ),
     'controllers' => array(
         'factories' => array(
-            'Admin\Controller\Admin' => AdminControllerFactory::class,
+            'Admin\Controller\Admin' => IndexControllerFactory::class,
         )
     ),
     'doctrine' => array(
@@ -73,6 +77,14 @@ return array(
                     __NAMESPACE__ . '\Entity' => __NAMESPACE__ . '_driver'
                 )
             )
+        ),
+    ),
+    'view_manager' => array(
+        /*'template_map' => array(
+            'admin/index/add-creation-page' => __DIR__ . '/../view/cart/cart/index.twig',
+        ),*/
+        'template_path_stack' => array(
+            __DIR__ . '/../view',
         ),
     ),
 );

@@ -9,13 +9,29 @@
 
 namespace Application\Controller;
 
+use Admin\Entity\Creation;
 use Zend\Mvc\Controller\AbstractActionController;
 use Zend\View\Model\ViewModel;
 
 class IndexController extends AbstractActionController
 {
+
+    protected $em;
+
+    public function __construct($em)
+    {
+        $this->em = $em;
+    }
+
     public function indexAction()
     {
-        return new ViewModel();
+        $viewModel = new ViewModel();
+        $creations = $this->em->getRepository(Creation::class)->findAll();
+
+        $viewModel->setVariables(array(
+            'creations' => $creations
+        ));
+
+        return $viewModel;
     }
 }
