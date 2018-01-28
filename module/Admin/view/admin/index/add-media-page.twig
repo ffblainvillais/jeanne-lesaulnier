@@ -1,0 +1,15 @@
+{% extends 'layout/layout' %}
+
+{% block content %}
+
+    <section class="page-container container-grey">
+
+        <div class="title text-centered text-bebas">
+            <h4>Ajouter un media à la réalisation "{{ creation.title }}"</h4>
+        </div>
+
+        {{ form(form) }}
+
+    </section>
+
+{% endblock %}

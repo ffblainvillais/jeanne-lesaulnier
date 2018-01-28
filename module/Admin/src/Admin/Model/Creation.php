@@ -8,6 +8,7 @@
 namespace Admin\Model;
 
 use Admin\Entity\Creation as CreationEntity;
+use Admin\Entity\Media as MediaEntity;
 
 class Creation
 {
@@ -49,6 +50,17 @@ class Creation
 
         $this->em->remove($creation);
         $this->em->flush();
+    }
+
+    public function addMedia(CreationEntity $creation, $title, $image)
+    {
+        $media = new MediaEntity();
+
+        $media->setTitle($title);
+        $media->setImage($image);
+        $media->setCreation($creation);
+
+        return $media;
     }
 
 }

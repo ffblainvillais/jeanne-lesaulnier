@@ -8,7 +8,22 @@
             <h3>{{ creation.title }}</h3>
         </div>
 
+        <p class="text-lato"><a href="{{ url('home') }}#creation"><span class="glyphicon glyphicon-menu-left"></span>Retour</a></p>
 
+        <ul class="creation-container">
+            {% for media in creation.medias %}
+                <li class="creation text-vertical-center">
+                    <img src="{{ creation().absoluteImagePath(media.image) }}" alt="{{ media.title }}" class="creation-image">
+                    {% if zfcUserIdentity() %}
+                        <a href="{{ url('remove-media-creation', {'mediaId' : media.id }) }}"><span class="glyphicon glyphicon-remove-circle"></span></a>
+                    {% endif %}
+                </li>
+            {% endfor %}
+
+            {% if zfcUserIdentity() %}
+                <li class="creation text-vertical-center"><a href="{{ url('add-media-creation', {'creationId' : creation.id}) }}"><span class="glyphicon glyphicon-plus"></span></a></li>
+            {% endif %}
+        </ul>
 
     </section>
 

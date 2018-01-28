@@ -68,6 +68,48 @@ return array(
                     ],
                 ],
             ],
+            'add-media-creation' => [
+                'type'    => 'Segment',
+                'options' => [
+                    'route'    => '/add-media-realisation/:creationId',
+                    'constraints' => [
+                        'creationId' => '[0-9]*',
+                    ],
+                    'defaults' => [
+                        '__NAMESPACE__' => 'Admin\Controller',
+                        'controller'    => 'Admin',
+                        'action'        => 'addMediaPage',
+                    ],
+                ],
+            ],
+            'add-media' => [
+                'type'    => 'Segment',
+                'options' => [
+                    'route'    => '/add-media/:creationId',
+                    'constraints' => [
+                        'creationId' => '[0-9]*',
+                    ],
+                    'defaults' => [
+                        '__NAMESPACE__' => 'Admin\Controller',
+                        'controller'    => 'Admin',
+                        'action'        => 'addMedia',
+                    ],
+                ],
+            ],
+            'remove-media-creation' => [
+                'type'    => 'Segment',
+                'options' => [
+                    'route'    => '/remove-media/:mediaId',
+                    'constraints' => [
+                        'mediaId' => '[0-9]*',
+                    ],
+                    'defaults' => [
+                        '__NAMESPACE__' => 'Admin\Controller',
+                        'controller'    => 'Admin',
+                        'action'        => 'removeMedia',
+                    ],
+                ],
+            ],
             'download-cv' => [
                 'type'    => 'Literal',
                 'options' => [
