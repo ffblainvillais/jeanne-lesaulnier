@@ -1,6 +1,7 @@
 <?php
 namespace Admin\Controller;
 
+use Admin\Entity\Creation as CreationEntity;
 use Admin\Form\AddCreationForm;
 use Admin\Model\Creation;
 use Admin\Model\Media;
@@ -70,6 +71,16 @@ class IndexController extends AbstractActionController
         $this->flashMessenger()->addMessage('la création à bien été supprimée !');
 
         return $this->redirect()->toRoute('home');
+    }
+
+    public function detailCreationPageAction()
+    {
+        $creationId     = $this->params()->fromRoute('creationId');
+        $creation       = $this->em->getRepository(CreationEntity::class)->findOneById($creationId);
+
+        return new ViewModel(array(
+            'creation' => $creation
+        ));
     }
 
     public function downloadCvAction()

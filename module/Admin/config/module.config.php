@@ -54,6 +54,20 @@ return array(
                     ],
                 ],
             ],
+            'detail-creation-page' => [
+                'type'    => 'Segment',
+                'options' => [
+                    'route'    => '/realisation/:creationId',
+                    'constraints' => [
+                        'creationId' => '[0-9]*',
+                    ],
+                    'defaults' => [
+                        '__NAMESPACE__' => 'Admin\Controller',
+                        'controller'    => 'Admin',
+                        'action'        => 'detailCreationPage',
+                    ],
+                ],
+            ],
             'download-cv' => [
                 'type'    => 'Literal',
                 'options' => [

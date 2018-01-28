@@ -3,6 +3,7 @@
 namespace Admin\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * @ORM\Entity
@@ -27,6 +28,19 @@ class Creation
      * @ORM\Column(type="string")
      */
     private $image;
+
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     *
+     * @ORM\OneToMany(targetEntity="Admin\Entity\Media", mappedBy="creation", cascade={"persist"})
+     */
+    private $medias;
+
+    public function __construct()
+    {
+        $this->medias = new ArrayCollection();
+
+    }
 
     /**
      * Get id
@@ -70,5 +84,37 @@ class Creation
         $this->image = $image;
     }
 
+    /**
+     * Add media
+     *
+     * @param \Admin\Entity\Media $media
+     * @return Creation
+     */
+    public function addMedia(\Admin\Entity\Media $media)
+    {
+        $this->medias[] = $media;
+
+        return $this;
+    }
+
+    /**
+     * Remove $media
+     *
+     * @param \Admin\Entity\Media $media
+     */
+    public function removeMedia(\Admin\Entity\Media $media)
+    {
+        $this->medias->removeElement($media);
+    }
+
+    /**
+     * Get medias
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getMedias()
+    {
+        return $this->medias;
+    }
 
 }

@@ -15,7 +15,7 @@
         }
 
         init() {
-
+            //@todo smooth scroll object
             /*this.$scrollTarget.on('click', e => {
                 console.log(e)
                 this.smoothScroll(e.currentTarget)
@@ -31,6 +31,7 @@
                 this.openAddCreationForm()
             })*/
 
+            //@todo display responsive menu object
             /*console.log(this.$responsiveDisplayButton)
             this.$responsiveDisplayButton.on('click', e => {
                 this.responsiveMenu()
