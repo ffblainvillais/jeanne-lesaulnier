@@ -1,9 +1,9 @@
 <div class="topnav" id="myTopnav">
     <section class="container-topnav-items">
-        <a href="{{ url('home') }}#home" class="topnav-item">ACCUEIL</a>
-        <a href="{{ url('home') }}#creation" class="topnav-item">MES RÉALISATIONS</a>
-        <a href="{{ url('home') }}#myCourse" class="topnav-item">MON PARCOURS</a>
-        <a href="{{ url('home') }}#about" class="topnav-item">QUI-SUIS-JE ?</a>
+        <a href="{{ url('home') }}#home" class="topnav-item js-smooth-scroll">ACCUEIL</a>
+        <a href="{{ url('home') }}#creation" class="topnav-item js-smooth-scroll">MES RÉALISATIONS</a>
+        <a href="{{ url('home') }}#myCourse" class="topnav-item js-smooth-scroll">MON PARCOURS</a>
+        <a href="{{ url('home') }}#about" class="topnav-item js-smooth-scroll">QUI SUIS-JE ?</a>
         <a href="javascript:void(0);" class="icon js-menu__display" onclick="displayResponsiveMenu()">&#9776;</a>
     </section>
 </div>
@@ -17,4 +17,13 @@
             x.className = "topnav";
         }
     }
+
+    $(document).ready(function() {
+        $('.js-smooth-scroll').on('click', function() { // Au clic sur un élément
+            var page = $(this).attr('href'); // Page cible
+            var speed = 750; // Durée de l'animation (en ms)
+            $('html, body').animate( { scrollTop: $(page).offset().top }, speed ); // Go
+            return false;
+        });
+    });
 </script>

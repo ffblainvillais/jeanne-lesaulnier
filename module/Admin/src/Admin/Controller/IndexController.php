@@ -27,7 +27,7 @@ class IndexController extends AbstractActionController
         $form = new AddCreationForm();
 
         $form->setAttribute('action', $this->url()->fromRoute('add-creation'));
-        $form->setAttribute('class', 'container');
+        $form->setAttribute('class', 'form-container');
 
         $viewModel = new ViewModel();
         $viewModel->setTerminal(true);
@@ -70,6 +70,13 @@ class IndexController extends AbstractActionController
         $this->flashMessenger()->addMessage('la création à bien été supprimée !');
 
         return $this->redirect()->toRoute('home');
+    }
+
+    public function downloadCvAction()
+    {
+       $cv = $this->mediaModel->downloadCv();
+
+       return $cv;
     }
 
     public function preDispatch (MvcEvent $e)

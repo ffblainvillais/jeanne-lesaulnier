@@ -54,6 +54,17 @@ return array(
                     ],
                 ],
             ],
+            'download-cv' => [
+                'type'    => 'Literal',
+                'options' => [
+                    'route'    => '/download-cv',
+                    'defaults' => [
+                        '__NAMESPACE__' => 'Admin\Controller',
+                        'controller'    => 'Admin',
+                        'action'        => 'downloadCv',
+                    ],
+                ],
+            ],
         ),
     ),
     'service_manager' => array(

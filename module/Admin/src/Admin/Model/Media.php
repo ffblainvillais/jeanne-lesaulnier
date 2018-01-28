@@ -19,6 +19,7 @@ class Media
     protected $em;
 
     const PATH_TO_SAVE_FILE = './public/images/upload/creations';
+    const PATH_TO_GET_CV    = './data/Cv-Jeanne-Lesaulnier.pdf';
     const JPG_EXTENSION     = 'jpg';
     const JPEG_EXTENSION    = 'jpeg';
     const PNG_EXTENSION     = 'png';
@@ -85,6 +86,20 @@ class Media
         }
 
         return array('success' => $success, 'message' => $message);
+    }
+
+    public function downloadCv()
+    {
+        $fileName = basename(self::PATH_TO_GET_CV);
+
+        header("Content-type:application/pdf");
+        header('Content-Disposition: attachment; filename="' . $fileName . '"');
+        header('Content-Transfer-Encoding: binary');
+        header('Cache-Control: must-revalidate, post-check=0, pre-check=0');
+        header('Expires: 0');
+        //$filename = 'php://output'; // Change filename to force download
+        echo file_get_contents(self::PATH_TO_GET_CV);die();
+
     }
 
     public function getPathToSaveFile()

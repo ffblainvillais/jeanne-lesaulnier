@@ -8,12 +8,18 @@
             this.$loginLink                 = $('#connection-link')
             this.$creationAdd               = $('.js-creation__add')
             this.$responsiveDisplayButton   = $('.js-menu__display')
+            this.$scrollTarget              = $('.smooth-scroll')
             this.$navBar                    = $('#myTopnav')
 
             this.init()
         }
 
         init() {
+
+            /*this.$scrollTarget.on('click', e => {
+                console.log(e)
+                this.smoothScroll(e.currentTarget)
+            });*/
 
             /*this.$loginLink.on('click', e => {
                 e.preventDefault()
@@ -77,6 +83,17 @@
                 this.$navBar.className = "topnav";
             }
         }
+
+        smoothScroll(target) {
+
+            console.log(target)
+            let page    = target.attr('href')
+            const speed = 750
+
+            $('html, body').animate( { scrollTop: $(page).offset().top }, speed );
+            return false;
+        }
+
     }
 
     new App()
