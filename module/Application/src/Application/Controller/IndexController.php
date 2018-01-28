@@ -29,7 +29,8 @@ class IndexController extends AbstractActionController
         $creations = $this->em->getRepository(Creation::class)->findAll();
 
         $viewModel->setVariables(array(
-            'creations' => $creations
+            'creations' => $creations,
+            'mainPage'  => true
         ));
 
         return $viewModel;
