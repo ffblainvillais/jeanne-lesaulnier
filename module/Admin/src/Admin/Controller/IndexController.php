@@ -128,9 +128,16 @@ class IndexController extends AbstractActionController
         return $this->redirect()->toRoute('detail-creation-page', array('creationId' => $creation->getId()));
     }
 
-    public function removeMedia()
+    public function removeMediaAction()
     {
-        return true;
+        $mediaId    = $this->params()->fromRoute('mediaId');
+        $creationId = $this->params()->fromRoute('creationId');
+
+        $this->creationModel->removeMediaFromCreation($creationId, $mediaId);
+
+        $this->flashMessenger()->addMessage('la création à bien été supprimée !');
+
+        return $this->redirect()->toRoute('home');
     }
 
     public function downloadCvAction()

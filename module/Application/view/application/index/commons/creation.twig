@@ -3,16 +3,16 @@
     <hr/>
     <ul class="creation-container">
         {% for creation in creations %}
-            <li class="creation text-vertical-center image-container">
+            <li class="creation image-container">
                 <a href="{{ url('detail-creation-page', {'creationId' : creation.id}) }}"><img src="{{ creation().getImagePath(creation.image) }}" alt="{{ creation.title }}" class="creation-image"></a>
                 {% if zfcUserIdentity() %}
-                    <a href="{{ url('remove-creation', {'creationId' : creation.id }) }}" class="remove-creation-button"><span class="glyphicon glyphicon-remove-circle"></span></a>
+                    <a href="{{ url('remove-creation', {'creationId' : creation.id }) }}" class="remove-creation-button"><span class="fa fa-times"></span></a>
                 {% endif %}
             </li>
         {% endfor %}
 
         {% if zfcUserIdentity() %}
-            <li class="creation text-vertical-center creation-border-dashed"><a href="{{ url('add-creation-page') }}"><span class="glyphicon glyphicon-plus remove-creation"></span></a></li>
+            <li class="creation creation-border-dashed"><a href="{{ url('add-creation-page') }}" ><span class="fa fa-plus"></span></a></li>
         {% endif %}
     </ul>
 </section>

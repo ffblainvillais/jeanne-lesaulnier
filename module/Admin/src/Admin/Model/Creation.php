@@ -63,4 +63,17 @@ class Creation
         return $media;
     }
 
+    public function removeMediaFromCreation($creationId, $mediaId)
+    {
+        /* @var $creation CreationEntity */
+        $creation   = $this->em->getRepository(CreationEntity::class)->findOneBy(['id' => $creationId]);
+        $media      = $this->em->getRepository(MediaEntity::class)->findOneBy(['id' => $mediaId]);
+
+        $creation->removeMedia($media);
+
+        $this->em->persist($creation);
+        $this->em->remove($media);
+        $this->em->flush();
+    }
+
 }

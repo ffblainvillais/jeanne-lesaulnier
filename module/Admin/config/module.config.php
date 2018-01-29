@@ -99,9 +99,10 @@ return array(
             'remove-media-creation' => [
                 'type'    => 'Segment',
                 'options' => [
-                    'route'    => '/remove-media/:mediaId',
+                    'route'    => '/remove-media/:creationId/:mediaId',
                     'constraints' => [
-                        'mediaId' => '[0-9]*',
+                        'creationId'    => '[0-9]*',
+                        'mediaId'       => '[0-9]*',
                     ],
                     'defaults' => [
                         '__NAMESPACE__' => 'Admin\Controller',

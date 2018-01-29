@@ -51,7 +51,7 @@ a {
     font-size: 6vw;
 }
 
-.title-vertical-center {
+.text-vertical-center {
     display: table-cell;
     vertical-align: middle;
 }
@@ -226,12 +226,15 @@ a {
     right: 10px;
 }
 
-.creation-border {
-    border: 5px solid #80D0D0;
-}
-
 .creation-border-dashed {
     border: 5px dashed #80D0D0;
+}
+
+.creation-border-dashed > a {
+    display: flex;
+    justify-content: space-around;
+    align-content: space-around;
+    height: 100%;
 }
 
 .creation-image {
@@ -257,14 +260,9 @@ a {
     }
 }
 
-span.glyphicon-plus {
+span.fa-plus {
+    margin-top: 20px;
     font-size: 170px;
-    color:black;
-    display: block;
-    margin: auto;
-    box-sizing: border-box;
-    background-repeat: no-repeat;
-    padding-left: 7px;
 }
 
 .btn {

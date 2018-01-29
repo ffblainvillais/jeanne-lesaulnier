@@ -10,7 +10,7 @@
 
         <div class="masonry-container">
             <p class="text-lato">
-                <a href="{{ url('home') }}#creation"><span class="glyphicon glyphicon-menu-left"></span>Retour</a>
+                <a href="{{ url('home') }}#creation"><span class="fa fa-chevron-left"></span> Retour</a>
             </p>
 
             {% if zfcUserIdentity() %}
@@ -19,10 +19,10 @@
 
             <ul class="masonry">
                 {% for media in creation.medias %}
-                    <li class="text-vertical-center image-container">
+                    <li class=" image-container">
                         <img src="{{ url('home') }}{{ creation().getImagePath(media.image) }}" alt="{{ media.title }}" class="masonry-item">
                         {% if zfcUserIdentity() %}
-                            <a href="{{ url('remove-media-creation', {'mediaId' : media.id }) }}" class="remove-creation-button"><span class="glyphicon glyphicon-remove-circle"></span></a>
+                            <a href="{{ url('remove-media-creation', {'creationId' : creation.id, 'mediaId' : media.id }) }}" class="remove-creation-button"><span class="fa fa-times"></span></a>
                         {% endif %}
                     </li>
                 {% endfor %}
