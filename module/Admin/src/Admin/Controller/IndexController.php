@@ -137,7 +137,7 @@ class IndexController extends AbstractActionController
 
         $this->flashMessenger()->addMessage('la création à bien été supprimée !');
 
-        return $this->redirect()->toRoute('home');
+        return $this->redirect()->toRoute('detail-creation-page', array('creationId' => $creationId));
     }
 
     public function downloadCvAction()
