@@ -3,7 +3,7 @@
     {# Capistrano robots #}
     <meta charset="utf-8">
 
-    <link rel="icon" type="image/png" href="images/favicon.png" />
+    <link rel="icon" type="image/png" href="{{ url('home') }}images/favicon.png" />
 
     {% set title = 'Jeanne-lesaulnier' %}
     <title>
@@ -19,6 +19,7 @@
     {% block styles %}
         <link href="/css/app.css" rel="stylesheet">
         <link href="/css/glyphicon.css" rel="stylesheet">
+        <link href="/css/masonry.css" rel="stylesheet">
         <link href="/js/magnific-popup/dist/magnific-popup.css" rel="stylesheet">
     {% endblock %}
 

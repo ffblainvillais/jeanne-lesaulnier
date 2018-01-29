@@ -18,11 +18,6 @@ class Creation extends AbstractHelper implements ServiceLocatorAwareInterface
         return self::PATH_TO_READ_FILE.$imageName;
     }
 
-    public function getAbsoluteImagePath($imageName)
-    {
-        return $_SERVER['HTTP_HOST'].'/'.self::PATH_TO_READ_FILE.$imageName;
-    }
-
     public function setServiceLocator(ServiceLocatorInterface $serviceLocator)
     {
         $this->serviceLocator = $serviceLocator;

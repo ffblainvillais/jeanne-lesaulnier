@@ -5,7 +5,7 @@
         {% if not zfcUserIdentity() %}
             <a href="{{ url('zfcuser/login') }}" id="connection-link">.</a>
         {% else %}
-            <a href="{{ url('zfcuser/logout') }}" id="connection-link">{{ zfcUserIdentity().getDisplayname() }} .</a>
+            <a href="{{ url('zfcuser/logout') }}" id="connection-link">.</a>
         {% endif %}
 
         <div id="top" class="title text-centered title-vertical-center">
