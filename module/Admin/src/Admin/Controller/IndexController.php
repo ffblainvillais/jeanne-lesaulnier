@@ -65,6 +65,7 @@ class IndexController extends AbstractActionController
     {
         $creationId  = $this->params()->fromRoute('creationId');
 
+        $this->creationModel->removeAllMediaFromCreationById($creationId);
         $this->creationModel->removeCreationById($creationId);
 
         $this->flashMessenger()->addMessage('la création à bien été supprimée !');

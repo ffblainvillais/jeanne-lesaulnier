@@ -76,4 +76,16 @@ class Creation
         $this->em->flush();
     }
 
+    public function removeAllMediaFromCreationById($creationId)
+    {
+        $creation   = $this->em->getRepository(CreationEntity::class)->findOneBy(['id' => $creationId]);
+
+        foreach ($creation->getMedias() as $media) {
+
+            $this->removeMediaFromCreation($creationId, $media->getId());
+        }
+
+        return true;
+    }
+
 }
