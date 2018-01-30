@@ -110,7 +110,7 @@ a {
 }
 
 /* Change the color of links on hover */
-.topnav a:hover {
+.topnav a:hover, .active {
     background-color: #80D0D0;
     color: black;
 }
@@ -344,7 +344,6 @@ input[type="submit"]:hover {
     font-family: 'bebas-neue', arial, sans-serif;
     margin-bottom: 80px;
 }
-
 
 
 

@@ -1,7 +1,7 @@
 {% extends 'layout/layout' %}
 
 {% block content %}
-    <header class="header" id="home">
+    <header class="header anchor" id="home">
         {% if not zfcUserIdentity() %}
             <a href="{{ url('zfcuser/login') }}" id="connection-link">.</a>
         {% else %}

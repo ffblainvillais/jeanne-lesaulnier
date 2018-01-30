@@ -1,9 +1,9 @@
 <div class="topnav" id="myTopnav">
-    <section class="container-topnav-items">
+    <section class="container-topnav-items" id="menu-center">
         <a href="{% if not mainPage %}{{ url('home') }}{% endif %}#home" class="topnav-item js-smooth-scroll">ACCUEIL</a>
         <a href="{% if not mainPage %}{{ url('home') }}{% endif %}#creation" class="topnav-item js-smooth-scroll">MES RÉALISATIONS</a>
         <a href="{% if not mainPage %}{{ url('home') }}{% endif %}#myCourse" class="topnav-item js-smooth-scroll">MON PARCOURS</a>
-        <a href="{% if not mainPage %}{{ url('home') }}{% endif %} #about" class="topnav-item js-smooth-scroll">QUI SUIS-JE ?</a>
+        <a href="{% if not mainPage %}{{ url('home') }}{% endif %}#about" class="topnav-item js-smooth-scroll">QUI SUIS-JE ?</a>
         <a href="javascript:void(0);" class="icon js-menu__display" onclick="displayResponsiveMenu()">&#9776;</a>
     </section>
 </div>
@@ -18,6 +18,7 @@
         }
     }
 
+
     $(document).ready(function() {
         $('.js-smooth-scroll').on('click', function() { // Au clic sur un élément
             var page = $(this).attr('href'); // Page cible
@@ -26,4 +27,31 @@
             return false;
         });
     });
+
+    $(document).ready(function(){
+        var $sections = $('.anchor');
+
+        $(window).scroll(function(){
+
+            var currentScroll = $(this).scrollTop();
+            var $currentSection
+
+            $sections.each(function(){
+
+                var divPosition = $(this).offset().top;
+
+                if( divPosition - 1 < currentScroll ){
+                    $currentSection = $(this);
+                }
+
+                var id = $currentSection.attr('id');
+                $('a').removeClass('active');
+                $("[href=#"+id+"]").addClass('active');
+
+            })
+
+        });
+    });
+
+
 </script>
