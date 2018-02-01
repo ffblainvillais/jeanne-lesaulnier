@@ -21,6 +21,7 @@
                 {% for media in creation.medias %}
                     <li class=" image-container">
                         <img src="{{ url('home') }}{{ creation().getImagePath(media.image) }}" alt="{{ media.title }}" class="masonry-item">
+
                         {% if zfcUserIdentity() %}
                             <a href="{{ url('remove-media-creation', {'creationId' : creation.id, 'mediaId' : media.id }) }}" class="remove-creation-button"><span class="fa fa-times"></span></a>
                         {% endif %}
@@ -29,7 +30,46 @@
             </ul>
         </div>
 
+        <div id="myModal" class="modal">
+            <span class="js-modal__close">&times;</span>
+            <img class="modal-content" id="img01">
+            <div class="caption"></div>
+        </div>
+
 
     </section>
+{% endblock %}
+{% block bottom_javascripts %}
+    <script>
 
+        let images         = $('.masonry-item')
+        const $modal       = $('.modal')
+        const $modalImage  = $('.modal-content')
+        const $modalTite   = $('.caption')
+        const $buttonClose = $('.js-modal__close')
+
+        images.each((i,image) => {
+
+            const $image = $(image)
+
+            $image.on('click', e => {
+
+                const imageSrc   = $image.attr('src')
+                const imageTitle = $image.attr('alt')
+
+                $('body').css('overflow', 'hidden')
+                $modal.css('display', 'block')
+                $modalImage.attr('src', imageSrc)
+                //$modalTite.html(imageTitle)
+            })
+        })
+
+        $buttonClose.on('click', e => {
+            $('body').css('overflow', 'auto')
+            $modalImage.attr('src', null)
+            //$modalTite.html(null)
+            $modal.css('display', 'none')
+        })
+
+    </script>
 {% endblock %}
