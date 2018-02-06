@@ -45,9 +45,8 @@
 
             $(window).scroll(function(){
 
+                //take middle of screen for scroll value
                 const currentScroll = $(this).scrollTop() + ($(window).height() / 2);
-
-                console.log(currentScroll)
                 let $currentSection
 
                 that.$navbarAnchor.each(function(){
@@ -79,7 +78,11 @@
         init() {
 
             this.$buttonDisplayMenu.on('click', e => {
-                this.displayResponsiveNav()
+                if (this.$navbarContainer.hasClass('responsive')) {
+                    this.hideResponsiveNav()
+                } else {
+                    this.displayResponsiveNav()
+                }
             })
 
             this.navbarItems.on('click', e => {
