@@ -1,9 +1,10 @@
 <div class="topnav js-navbar__container" id="myTopnav">
     <section class="container-topnav-items" id="menu-center">
-        <a href="{% if not mainPage %}{{ url('home') }}{% endif %}#home" class="topnav-item js-navbar__smooth_scroll">ACCUEIL</a>
-        <a href="{% if not mainPage %}{{ url('home') }}{% endif %}#creation" class="topnav-item js-navbar__smooth_scroll">MES RÉALISATIONS</a>
-        <a href="{% if not mainPage %}{{ url('home') }}{% endif %}#myCourse" class="topnav-item js-navbar__smooth_scroll">MON PARCOURS</a>
-        <a href="{% if not mainPage %}{{ url('home') }}{% endif %}#about" class="topnav-item js-navbar__smooth_scroll">QUI SUIS-JE ?</a>
+        <a href="{% if not mainPage %}{{ url('home') }}{% endif %}#home" class="topnav-item js-navbar__smooth_scroll js-navbar__responsive__container">test</a>
+        <a href="{% if not mainPage %}{{ url('home') }}{% endif %}#home" class="topnav-item js-navbar__smooth_scroll" data-content="ACCUEIL">ACCUEIL</a>
+        <a href="{% if not mainPage %}{{ url('home') }}{% endif %}#creation" class="topnav-item js-navbar__smooth_scroll" data-content="MES RÉALISATIONS">MES RÉALISATIONS</a>
+        <a href="{% if not mainPage %}{{ url('home') }}{% endif %}#myCourse" class="topnav-item js-navbar__smooth_scroll" data-content="MON PARCOURS">MON PARCOURS</a>
+        <a href="{% if not mainPage %}{{ url('home') }}{% endif %}#about" class="topnav-item js-navbar__smooth_scroll" data-content="QUI SUIS-JE ?">QUI SUIS-JE ?</a>
         <a href="javascript:void(0);" class="icon js-navbar__display">&#9776;</a>
     </section>
 </div>

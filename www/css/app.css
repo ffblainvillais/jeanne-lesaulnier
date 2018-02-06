@@ -118,16 +118,25 @@ a {
 /* Hide the link that should open and close the topnav on small screens */
 .topnav .icon {
     display: none;
+    height: 28px;
+}
+
+.container-topnav-items > .js-navbar__responsive__container  {
+    display: none;
 }
 
 /* When the screen is less than 600 pixels wide, hide all links, except for the first one ("Home"). Show the link that contains should open and close the topnav (.icon) */
 @media screen and (max-width: 850px) {
+    .topnav-item.js-navbar__responsive__container {
+        display:block;
+    }
     .topnav a:not(:first-child) {display: none;}
     .topnav a.icon {
         float: right;
         display: block;
         padding: 14px 0px 14px 0px;
     }
+
     .container-topnav-items > .topnav-item {
         width:73%;
         padding: 14px 0px 14px 0px;
