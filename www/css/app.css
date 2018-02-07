@@ -97,6 +97,7 @@ a {
     font-family: 'bignoodletitling';
     font-size: 25px;
     transition: 0.3s;
+    text-align: center;
 }
 
 /* Style the links inside the navigation bar */
@@ -104,7 +105,6 @@ a {
     float: left;
     display: block;
     color: #f2f2f2;
-    text-align: center;
     padding: 14px 16px;
     font-size: 17px;
 }
@@ -151,7 +151,6 @@ a {
         position: fixed;
         right: 0;
         bottom: 0;
-        text-align: center;
     }
 
     .topnav.responsive {position: fixed;}
@@ -159,7 +158,6 @@ a {
     .topnav.responsive a {
         float: none;
         display: block;
-        text-align: left;
     }
 
     .container-topnav-items {
