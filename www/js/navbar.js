@@ -78,6 +78,10 @@
         init() {
 
             this.$buttonDisplayMenu.on('click', e => {
+                console.log(e)
+                console.log(this)
+                console.log($(this))
+                console.log($(e.target))
                 if (this.$navbarContainer.hasClass('responsive')) {
                     this.hideResponsiveNav()
                 } else {
@@ -91,6 +95,13 @@
             })
 
             this.highLightNavbarItem()
+
+            //@todo cacher l'item menu au resizing
+            $(window).resize(() => {
+                /*if(window.innerWidth() == 100) {
+
+                }*/
+            })
         }
     }
 

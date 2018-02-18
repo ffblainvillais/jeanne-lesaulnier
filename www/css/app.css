@@ -46,6 +46,11 @@ a {
     -o-background-size: cover;
 }
 
+.content-container {
+    width:80%;
+    margin: auto;
+}
+
 .title {
     font-family: 'bromello', arial, sans-serif;
     font-size: 6vw;
@@ -374,6 +379,11 @@ input[type="submit"]:hover {
 .download-cv {
     font-family: 'bebas-neue', arial, sans-serif;
     margin-bottom: 80px;
+}
+
+.mce-container {
+    display:block;
+    margin: auto;
 }
 
 
